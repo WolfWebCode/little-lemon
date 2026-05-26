@@ -5,7 +5,7 @@ import { useReducer } from 'react';
 import HomePage from '../pages/HomePage';
 import BookingPage from '../pages/BookingPage';
 
-const initialTimes = () => {
+export const initializeTimes = () => {
     return [
         "17:00",
         "18:00",
@@ -16,7 +16,7 @@ const initialTimes = () => {
     ];
 };
 
-const updateTimes = (state, action) => {
+export const updateTimes = (state, action) => {
 
     console.log(action.date);
 
@@ -32,7 +32,7 @@ const updateTimes = (state, action) => {
 
 function Main() {
 
-    const [availableTimes, dispatch] = useReducer(updateTimes, [], initialTimes);
+    const [availableTimes, dispatch] = useReducer(updateTimes, [], initializeTimes);
 
     return (
         <main>
