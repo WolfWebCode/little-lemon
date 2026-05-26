@@ -164,3 +164,25 @@ div.card {
     padding: 40px 16px;
   }
 }
+
+.hero {
+  background-color: #495e57;
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.hero button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  border: none;
+  background-color: #f4ce14;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
