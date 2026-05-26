@@ -1,42 +1,37 @@
-import { initializeTimes, updateTimes } from './Main';
+import { initializeTimes, updateTimes } from "./Main";
 
-test('initializeTimes returns the correct initial times', () => {
+beforeEach(() => {
 
-  const result = initializeTimes();
-
-  expect(result).toEqual([
-    '17:00',
-    '18:00',
-    '19:00',
-    '20:00',
-    '21:00',
-    '22:00',
-  ]);
+    global.fetchAPI = jest.fn(() => [
+        "17:00",
+        "18:00",
+        "19:00",
+        "20:00",
+        "21:00",
+        "22:00",
+    ]);
 
 });
 
-test('updateTimes returns the same state provided', () => {
+test("initializeTimes returns available times", () => {
 
-  const state = [
-    '17:00',
-    '18:00',
-    '19:00',
-  ];
+    const result = initializeTimes();
 
-  const action = {
-    type: 'UPDATE_TIMES',
-    date: '2026-05-25',
-  };
+    expect(result).toHaveLength(6);
 
-  const result = updateTimes(state, action);
+});
 
-  expect(result).toEqual([
-    '17:00',
-    '18:00',
-    '19:00',
-    '20:00',
-    '21:00',
-    '22:00',
-  ]);
+test("updateTimes returns available times based on selected date", () => {
+
+    const state = [];
+
+    const action = {
+        type: "UPDATE_TIMES",
+        date: "2026-05-25",
+    };
+
+    const result = updateTimes(state, action);
+
+    expect(result).toHaveLength(6);
 
 });
