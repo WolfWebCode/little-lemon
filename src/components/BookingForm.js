@@ -73,6 +73,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
             <input
                 type="date"
                 id="res-date"
+                aria-label='Choose reservation date'
                 value={date}
                 onChange={handleDateChange}
                 required
@@ -84,6 +85,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
 
             <select
                 id="res-time"
+                aria-label='Choose reservation time'
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
                 required
@@ -109,6 +111,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
             <input
                 type="number"
                 id="guests"
+                aria-label='Choose number of guests'
                 min="1"
                 max="10"
                 value={guests}
@@ -123,6 +126,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
             <select
                 id="occasion"
                 value={occasion}
+                aria-label='Choose occasion'
                 onChange={(e) => setOccasion(e.target.value)}
                 required
             >
@@ -135,6 +139,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
             <input
                 type="submit"
                 value="Make Your reservation"
+                aria-label="Submit reservation form"
                 disabled={!isFormValid}
             />
 
