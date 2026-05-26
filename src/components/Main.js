@@ -1,10 +1,12 @@
 /* global fetchAPI */
+/* global submitAPI */
 
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useReducer } from 'react';
 
 import HomePage from '../pages/HomePage';
 import BookingPage from '../pages/BookingPage';
+import ConfirmedBooking from '../pages/ConfirmedBooking';
 
 export const initializeTimes = () => {
 
@@ -33,9 +35,22 @@ function Main() {
         initializeTimes
     );
 
+    const navigate = useNavigate();
+
+    const submitForm = (formData) => {
+
+        const success = submitAPI(formData);
+
+        if (success) {
+            navigate('/confirmed');
+        }
+    };
+
     return (
         <main>
+
             <Routes>
+
                 <Route
                     path="/"
                     element={<HomePage />}
@@ -47,10 +62,18 @@ function Main() {
                         <BookingPage
                             availableTimes={availableTimes}
                             dispatch={dispatch}
+                            submitForm={submitForm}
                         />
                     }
                 />
+
+                <Route
+                    path="/confirmed"
+                    element={<ConfirmedBooking />}
+                />
+
             </Routes>
+
         </main>
     );
 }
