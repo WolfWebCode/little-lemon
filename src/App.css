@@ -5,55 +5,162 @@
 }
 
 body {
+  background-color: #edefee;
+  color: #333333;
   font-family: Arial, sans-serif;
-  background-color: #f8f8f8;
-  color: #333;
+  line-height: 1.5;
 }
+
+/* -------------Typography------------- */
+
+h1 {
+  font-size: 64px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-size: 32px;
+  margin-bottom: 14px;
+}
+
+h4 {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+h5 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+h6 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+p {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+span {
+  font-size: 16px;
+}
+
+/* ------------- Header ------------- */
 
 header {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: white;
   padding: 20px;
-  background-color: #333;
 }
 
 header img {
   width: 200px;
+  border-radius: 10px;
 }
 
+/* ------------- Navigation ------------- */
+
 nav {
-  background-color: #555;
-  padding: 15px;
+  background-color: #495e57;
+  padding: 18px;
 }
 
 nav ul {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 30px;
   list-style: none;
   flex-wrap: wrap;
 }
 
+nav li {
+  transition: transform 0.2s ease;
+}
+
+nav li:hover {
+  transform: scale(1.05);
+}
+
 nav a {
-  text-decoration: none;
   color: #fff;
+  text-decoration: none;
+  font-size: 18px ;
   font-weight: bold;
 }
 
+nav a:hover {
+  color: #f4ce14;
+}
+
+/* ------------- Main ------------- */
+
 main {
-  min-height: 500px;
-  padding: 40px;
+  min-height: 70vh;
+  padding: 60px 20px;
   display: grid;
   place-items: center;
-  background-color: darkcyan;
-  font-size: 2rem;
-  font-weight: bold;
+  text-align: center;
+  background-color: #f4ce14;
 }
+
+/* ------------- Footer ------------- */
 
 footer {
   background-color: #333;
   color: #fff;
   text-align: center;
-  padding: 20px;
+  padding: 25px;
+}
+
+/* ------------- Generic Images ------------- */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ------------- Cards / Sections ------------- */
+
+section,
+article,
+aside,
+div.card {
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ------------- Responsive ------------- */
+
+@media (max-width: 768px) {
+
+  h1 {
+    font-size: 42px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  nav ul {
+    gap: 15px;
+  }
+
+  nav a {
+    font-size: 16px;
+  }
+
+  main {
+    padding: 40px 16px;
+  }
 }
