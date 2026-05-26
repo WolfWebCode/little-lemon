@@ -1,53 +1,58 @@
-import { Routes, Route } from 'react-router-dom';
+/* global fetchAPI */
 
+import { Routes, Route } from 'react-router-dom';
 import { useReducer } from 'react';
 
 import HomePage from '../pages/HomePage';
 import BookingPage from '../pages/BookingPage';
 
 export const initializeTimes = () => {
-    return [
-        "17:00",
-        "18:00",
-        "19:00",
-        "20:00",
-        "21:00",
-        "22:00"
-    ];
+
+    const today = new Date();
+
+    return fetchAPI(today);
 };
 
 export const updateTimes = (state, action) => {
 
-    console.log(action.date);
+    if (action.type === 'UPDATE_TIMES') {
 
-    return [
-        "17:00",
-        "18:00",
-        "19:00",
-        "20:00",
-        "21:00",
-        "22:00",
-    ];
+        const selectedDate = new Date(action.date);
+
+        return fetchAPI(selectedDate);
+    }
+
+    return state;
 };
 
 function Main() {
 
-    const [availableTimes, dispatch] = useReducer(updateTimes, [], initializeTimes);
+    const [availableTimes, dispatch] = useReducer(
+        updateTimes,
+        [],
+        initializeTimes
+    );
 
     return (
         <main>
             <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/booking" element={
-                    <BookingPage
-                        availableTimes={availableTimes}
-                        dispatch={dispatch}
-                      />
-                      }
-                       />
+                <Route
+                    path="/"
+                    element={<HomePage />}
+                />
+
+                <Route
+                    path="/booking"
+                    element={
+                        <BookingPage
+                            availableTimes={availableTimes}
+                            dispatch={dispatch}
+                        />
+                    }
+                />
             </Routes>
         </main>
     );
-    }
+}
 
 export default Main;
