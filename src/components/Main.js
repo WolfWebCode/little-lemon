@@ -1,7 +1,7 @@
 function Main() {
     return (
         <main>
-        Main Content
+        Welcome to Little Lemon
         </main>
     );
     }
