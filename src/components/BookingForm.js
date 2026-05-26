@@ -7,20 +7,51 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
     const [guests, setGuests] = useState(1);
     const [occasion, setOccasion] = useState('Birthday');
 
-    const handleDateChange = (e) => {
-        const selectedDate = e.target.value;
+    const [isFormValid, setIsFormValid] = useState(false);
 
-        setDate(selectedDate);
+    const validateForm = (updatedDate, updatedGuests) => {
+
+        const isDateValid = updatedDate !== '';
+
+        const isGuestsValid =
+            updatedGuests >= 1 &&
+            updatedGuests <= 10;
+
+        setIsFormValid(
+            isDateValid && isGuestsValid
+        );
+    };
+
+    const handleDateChange = (e) => {
+
+        const newDate = e.target.value;
+
+        setDate(newDate);
 
         dispatch({
             type: 'UPDATE_TIMES',
-            date: selectedDate,
+            date: newDate,
         });
+
+        validateForm(newDate, guests);
+    };
+
+    const handleGuestsChange = (e) => {
+
+        const newGuests = Number(e.target.value);
+
+        setGuests(newGuests);
+
+        validateForm(date, newGuests);
     };
 
     const handleSubmit = (e) => {
+
         e.preventDefault();
-               submitForm({
+
+        if (!isFormValid) return;
+
+        submitForm({
             date,
             time,
             guests,
@@ -29,17 +60,22 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
     };
 
     return (
+
         <form
             onSubmit={handleSubmit}
             className="booking-form"
         >
-            <label htmlFor="res-date">Choose date</label>
+
+            <label htmlFor="res-date">
+                Choose date
+            </label>
 
             <input
                 type="date"
                 id="res-date"
                 value={date}
                 onChange={handleDateChange}
+                required
             />
 
             <label htmlFor="res-time">
@@ -50,15 +86,20 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
                 id="res-time"
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
+                required
             >
+
                 {availableTimes.map((availableTime) => (
+
                     <option
                         key={availableTime}
                         value={availableTime}
                     >
                         {availableTime}
                     </option>
+
                 ))}
+
             </select>
 
             <label htmlFor="guests">
@@ -71,7 +112,8 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
                 min="1"
                 max="10"
                 value={guests}
-                onChange={(e) => setGuests(e.target.value)}
+                onChange={handleGuestsChange}
+                required
             />
 
             <label htmlFor="occasion">
@@ -82,15 +124,20 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
                 id="occasion"
                 value={occasion}
                 onChange={(e) => setOccasion(e.target.value)}
+                required
             >
+
                 <option>Birthday</option>
                 <option>Anniversary</option>
+
             </select>
 
             <input
                 type="submit"
                 value="Make Your reservation"
+                disabled={!isFormValid}
             />
+
         </form>
     );
 }
