@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #ffffff;
   color: #333333;
@@ -586,5 +590,79 @@ section {
   .testimonial-card {
     width: 100%;
     max-width: 340px;
+  }
+}
+
+/* ------------- About Section ------------- */
+
+.about-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 100px 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+}
+
+.about-text {
+  width: 55%;
+}
+
+.about-text h2 {
+  font-family: 'Markazi Text', serif;
+  font-size: 64px;
+  color: #495E57;
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.about-text p {
+  font-family: 'Karla', sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #333333;
+  margin-bottom: 24px;
+  text-align: justify;
+}
+
+.about-image-container {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image {
+  width: 100%;
+  max-width: 480px;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 20px;
+  object-position: right center;
+}
+
+/* ------------- Responsive About ------------- */
+
+@media (max-width: 768px) {
+
+  .about-section {
+    flex-direction: column;
+    padding: 80px 24px;
+  }
+
+  .about-text {
+    width: 100%;
+  }
+
+  .about-image-container {
+    width: 100%;
+  }
+
+  .about-image {
+    height: auto;
+  }
+
+  .about-text h2 {
+    font-size: 48px;
   }
 }

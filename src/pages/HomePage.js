@@ -1,6 +1,6 @@
 import CallToAction from "../components/CallToAction";
 import Specials from "../components/Specials";
-    import Chicago from "../components/Chicago";
+import About from "../components/About";
 import Testimonials from "../components/Testimonials";
 
 function HomePage() {
@@ -9,7 +9,7 @@ function HomePage() {
             <CallToAction />
             <Specials />
             <Testimonials />
-            <Chicago />
+            <About />
         </>
     );
 }
