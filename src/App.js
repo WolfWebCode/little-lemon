@@ -5,10 +5,12 @@ import Nav from './components/Nav';
 import Main from './components/Main';
 import Footer from './components/Footer';
 import ScrollToHash from './components/ScrollToHash';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <>
+      <ScrollToTop />
       <ScrollToHash />
       <Header />
       <Nav />

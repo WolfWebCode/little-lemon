@@ -4,7 +4,14 @@ function Nav() {
     return (
         <nav aria-label="Main Navigation">
             <ul>
-                <li><Link to="/" aria-label="Go to Home">Home</Link></li>
+                <Link to="/" onClick={() => {
+                    window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth',
+        });
+    }}
+>
+    Home </Link>
                 <li><Link to="/#about" aria-label="Go to About">About</Link></li>
                 <li><Link to="/menu" aria-label="Go to Menu">Menu</Link></li>
                 <li><Link to="/booking" aria-label="Go to Reservations">Reservations</Link></li>
