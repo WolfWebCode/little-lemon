@@ -5,9 +5,9 @@
 }
 
 body {
-  background-color: #edefee;
+  background-color: #ffffff;
   color: #333333;
-  font-family: Arial, sans-serif;
+  font-family: 'Markazi', sans-serif;
   line-height: 1.5;
 }
 
@@ -106,11 +106,9 @@ nav a:hover {
 
 main {
   min-height: 70vh;
-  padding: 60px 20px;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  background-color: #f4ce14;
+  padding-top: 32px;
+  display: block;
+  background-color: #ffffff;
 }
 
 /* ------------- Footer ------------- */
@@ -132,7 +130,6 @@ img {
 
 /* ------------- Cards / Sections ------------- */
 
-section,
 article,
 aside,
 div.card {
@@ -166,20 +163,91 @@ div.card {
 }
 
 .hero {
-  background-color: #495e57;
-  color: #fff;
-  padding: 80px 20px;
-  text-align: center;
+  width: 100%;
+  min-height: 420px;
+  background-color: #495E57;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 0 140px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  gap: 12px;
+  box-sizing: border-box;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.hero-text {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.hero-text h1 {
+  font-family: 'Markazi Text', serif;
+  font-size: 72px;
+  font-weight: 500;
+  color: #F4CE14;
+  margin: 0;
+  text-align: left;
+  line-height: 0.9;
+}
+
+.hero-text h2 {
+  font-family: 'Markazi Text', serif;
+  font-size: 40px;
+  font-weight: 400;
+  color: white;
+  margin-top: -8px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.hero-text p {
+  font-family: 'Karla', sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  color: white;
+  width: 85%;
+  margin-bottom: 32px;
+  text-align: left;
 }
 
 .hero button {
-  margin-top: 20px;
-  padding: 12px 24px;
+  background-color: #F4CE14;
+  color: black;
   border: none;
-  background-color: #f4ce14;
-  font-weight: bold;
-  border-radius: 10px;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-family: 'Karla', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
   cursor: pointer;
+  width: fit-content;
+  transition: 0.3s ease;
+}
+
+.hero button:hover {
+
+  transform: scale(1.03);
+}
+
+.hero-image-container {
+  width: 50%;
+  height: auto;
+  display: flex;
+  align-items: stretch;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 section {
@@ -226,4 +294,28 @@ section {
 
 .booking-form input[type="submit"]:hover {
   transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    padding: 40px 24px;
+  }
+
+  .hero-text {
+    width: 100%;
+  }
+
+  .hero-image-container {
+    width: 100%;
+    margin-top: 32px;
+  }
+
+  .hero-text p {
+    width: 100%;
+  }
+
+  .hero-text h1 {
+    font-size: 56px;
+  }
 }
